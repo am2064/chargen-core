@@ -1,0 +1,17 @@
+{
+  "name": "chargen_library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tests.js",
+  "dependencies": {
+    "should": "^7.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}

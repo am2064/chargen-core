@@ -35,7 +35,7 @@ describe('Core Library',function(){
 		});
 		it('should have initiated any inventory and their category',function(){
 			var inventories=NewCharacter.getInventories();
-			intentories.should.have.properties({});
+			inventories.should.have.properties({});
 		});
 	});
 

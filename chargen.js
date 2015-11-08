@@ -7,6 +7,12 @@ module.exports={
 	},
 	_class:'',
 	_level:0,
+	_previousLevel:undefined,
+	_calculateScores:function(scores){
+		return scores;
+	},
+	_abilities:{},
+	_inventories:{},
 	initialize:function(_stats){
 		if(_stats._class){
 			this._class=_stats._class;
@@ -18,6 +24,7 @@ module.exports={
 		}
 		this._stats.rolled=_stats;
 		this._stats.base=_stats;
+		this._stats.calculated=this._calculateScores(_stats);
 		debug('initial this',this);
 		debug('initial stats',this._stats);
 		return this;
@@ -37,4 +44,19 @@ module.exports={
 		debug('getBaseScores stats',this._stats.base);
 		return this._stats.base;
 	},
+	getCalculatedScores:function(){
+		debug('getCalculatedScores this',this);
+		debug('getCalculatedScores stats',this._stats.calculated);
+		return this._stats.calculated;
+	},
+	getAbilities:function(){
+		debug('getAbilities this',this);
+		debug('getAbilities abilities',this._abilities);
+		return this._abilities;
+	},
+	getInventories:function(){
+		debug('getInventories this',this);
+		debug('getInventories inventories',this._inventories);
+		return this._inventories;
+	}
 }

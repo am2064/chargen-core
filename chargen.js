@@ -58,5 +58,37 @@ module.exports={
 		debug('getInventories this',this);
 		debug('getInventories inventories',this._inventories);
 		return this._inventories;
+	},
+	addAbilityCategory:function(name){
+		this._abilities[name]=[];
+		debug('addAbilityCategory this',this);
+		debug('addAbilityCategory abilities',this._abilities);
+		return this;
+	},
+	addInventoryCategory:function(name){
+		this._inventories[name]=[];
+		debug('addInventoryCategory this',this);
+		debug('addInventoryCategory inventories',this._inventories);
+		return this;
+	},
+	addToAbilityCategory:function(name,ability){
+		this._abilities[name].push(ability);
+		debug('addToAbilityCategory this',this);
+		debug('addToAbilityCategory abilities',this._abilities);
+		return this;
+	},
+	addToInventoryCategory:function(name,inventory){
+		this._inventories[name].push(inventory);
+		debug('addToInventoryCategory this',this);
+		debug('addToInventoryCategory inventories',this._inventories);
+		return this;
+	},
+	levelUp:function(){
+		this._level++;
+		return this;
+	},
+	setLevel:function(level){
+		this._level=level;
+		return this;
 	}
 }

@@ -63,8 +63,8 @@ describe('Core Library',function(){
 	});
 	describe('#interactWithIntentories',function(){
 		it('should let you create a new inventory',function(){
-			NewCharacter.addIntentoryCategory('ammo');
-			var categories=NewCharacter.getCategories();
+			NewCharacter.addInventoryCategory('ammo');
+			var categories=NewCharacter.getInventories();
 			categories.should.have.properties({
 				ammo:[]
 			});
@@ -74,7 +74,7 @@ describe('Core Library',function(){
 				name:"Solid Projectile",
 				description:"A slug of cheap metal"
 			});
-			var categories=NewCharacter.getCategories();
+			var categories=NewCharacter.getInventories();
 			categories.should.have.properties({
 				ammo:[{
 					name:"Solid Projectile",
@@ -89,7 +89,7 @@ describe('Core Library',function(){
 		before(function(){
 			NewCharacter
 				.addAbilityCategory('skills')
-				.addIntentoryCategory('ammo')
+				.addInventoryCategory('ammo')
 				.addToAbilityCategory('skills',{
 					name:"Basket Weaving",
 					description:"Allows you to weave baskets."
@@ -134,7 +134,7 @@ describe('Core Library',function(){
 			});
 		});
 		it('should still have any inventory and their category',function(){
-			var categories=NewCharacter.getCategories();
+			var categories=NewCharacter.getInventories();
 			categories.should.have.properties({
 				ammo:[{
 					name:"Solid Projectile",
@@ -148,7 +148,7 @@ describe('Core Library',function(){
 		before(function(){
 			NewCharacter
 				.addAbilityCategory('skills')
-				.addIntentoryCategory('ammo')
+				.addInventoryCategory('ammo')
 				.addToAbilityCategory('skills',{
 					name:"Basket Weaving",
 					description:"Allows you to weave baskets."
@@ -193,7 +193,7 @@ describe('Core Library',function(){
 			});
 		});
 		it('should still have any inventory and their category',function(){
-			var categories=NewCharacter.getCategories();
+			var categories=NewCharacter.getInventories();
 			categories.should.have.properties({
 				ammo:[{
 					name:"Solid Projectile",

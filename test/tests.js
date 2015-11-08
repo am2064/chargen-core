@@ -203,20 +203,71 @@ describe('Core Library',function(){
 		});
 	});
 
-	/*
-	   describe('#export()',function(){
-			//TODO run init function here and set as many variables as possible to cover
-			//	* rolled scores
-			//	* non-rolled scores
-			//	* abilities
-			//	* inventory
-			it('json',function(){});
-			it('yaml',function(){});
-			it('csv',function(){});
-			it('pretty print',function(){});
-			it('pdf',function(){});
-			it('ascii art',function(){});
+	describe('#export()',function(){
+		//TODO run init function here and set as many variables as possible to cover
+		//	* rolled scores
+		//	* non-rolled scores
+		//	* abilities
+		//	* inventory
+		before(function(){
+			NewCharacter
+				.addAbilityCategory('skills')
+				.addInventoryCategory('ammo')
+				.addToAbilityCategory('skills',{
+					name:"Basket Weaving",
+					description:"Allows you to weave baskets."
+				})
+			.addToInventoryCategory('ammo',{
+				name:"Solid Projectile",
+				description:"A slug of cheap metal"
+			})
+			.setLevel(3);
+		});
+
+		it('json',function(){
+			var _json=NewCharacter.toJSON();
+			_json.should.have.properties({
+				clazz: 'Wizard',
+				level:3,
+				stats:{
+					rolled:{
+						strength: 18,
+						dexterity: 10,
+						mind: 12,
+					},
+					base:{
+						strength: 18,
+						dexterity: 10,
+						mind: 12,
+					},
+					calculated:{
+						strength: 18,
+						dexterity: 10,
+						mind: 12,
+					},
+				},
+				inventories:{
+					ammo:[{
+						name:"Solid Projectile",
+						description:"A slug of cheap metal"
+					}]
+				},
+				abilities:{
+					skills:[{
+						name:"Basket Weaving",
+						description:"Allows you to weave baskets."
+					}]
+				}
 			});
-			*/
+		});
+
+	});
+	/*
+	   it('yaml',function(){});
+	   it('csv',function(){});
+	   it('pretty print',function(){});
+	   it('pdf',function(){});
+	   it('ascii art',function(){});
+	   */
 });
 

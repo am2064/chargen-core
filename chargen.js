@@ -85,10 +85,23 @@ module.exports={
 	},
 	levelUp:function(){
 		this._level++;
+		debug('levelUp this',this);
+		debug('levelUp level',this._level);
 		return this;
 	},
 	setLevel:function(level){
 		this._level=level;
+		debug('setLevel this',this);
+		debug('setLevel level',this._level);
 		return this;
+	},
+	toJSON:function(){
+		return {
+			clazz:this._class,
+			level:this._level,
+			stats:this._stats,
+			inventories:this._inventories,
+			abilities:this._abilities
+		};
 	}
 }
